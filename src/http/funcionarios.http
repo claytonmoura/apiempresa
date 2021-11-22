@@ -1,0 +1,45 @@
+@baseURL = http://localhost:4000
+@id = 6196df6004e4719ca60c514f
+
+###
+// GET - Lista todos
+GET {{baseURL}}/colaboradores
+Content-Type: application/json
+
+###
+// GET - Lista por id
+GET {{baseURL}}/colaboradores/{{id}}
+Content-Type: application/json
+
+###
+// POST - Cadastrar
+POST {{baseURL}}/colaboradores
+Content-Type: application/json
+
+{
+   "nome": "Rodrigo",
+   "cargo": "Gerente",
+   "telefone": "99999999",
+   "cpf": "111.222.333-44",
+   "inscricao": "2222222222c"
+}
+
+### 
+// DELETE - Apagar por id
+DELETE {{baseURL}}/colaboradores/{{id}}
+Content-Type: application/json
+
+###
+// PUT - Alterar por id
+PUT {{baseURL}}/colaboradores/619b8249a3cd6d9bcf1ffc15
+Content-Type: application/json
+
+{
+   "nome": "Francisco",
+   "cargo": "Supervisor",
+   "telefone": "12209120",
+   "cpf": "000.000.111-22",
+   "inscricao": "11111111a"
+}
+
+

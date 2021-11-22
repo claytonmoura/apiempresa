@@ -1,0 +1,46 @@
+use('cadFuncionario');
+
+db.createCollection('cadFuncionario', {
+  validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['nome', 'cargo', 'telefone', 'cpf', 'inscricao'],
+            properties: {
+                nome: {
+                    bsonType: 'string',
+                    description: 'Nome é obrigatório'
+                },
+                cargo: {
+                    bsonType: 'string',
+                    description: 'o cargo é obrigatório'
+                },
+                telefone: {
+                    bsonType: 'string',
+                    description: 'O telefone é obrigatório'
+                },
+                cpf: {
+                    bsonType: 'string',
+                    description: 'O CPF é obrigatório'
+                },
+                inscricao: {
+                    bsonType: 'string',
+                    description: 'A inscrição é obrigatória'
+                }
+            }
+        }
+    }
+});
+
+db.funcionario.createIndex({cpf: 1},{unique:true})
+db.funcionario.createIndex({inscricao: 1},{unique:true})
+db.funcionario.find({},{})
+
+db.funcionario.insertOne(
+  {
+   "nome": "Francisco",
+   "cargo": "Supervisor",
+   "telefone": "12209120",
+   "cpf": "000.000.111-22",
+   "inscricao": "11111111a"
+}
+)
